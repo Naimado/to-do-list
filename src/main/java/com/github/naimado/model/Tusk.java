@@ -15,6 +15,12 @@ public class Tusk extends BaseEntity{
 
     private Set<Employee> responsibles;
 
+    @OneToMany(mappedBy = "superTusk", orphanRemoval = true)
+    private Set<SubTusk> subTusks;
+
+    @OneToMany(mappedBy = "tusk")
+    private Set<Comment> comments;
+
     private boolean isDone;
 
     private boolean isDeleted;
@@ -57,5 +63,21 @@ public class Tusk extends BaseEntity{
 
     public void setDeleted(boolean deleted) {
         isDeleted = deleted;
+    }
+
+    public Set<SubTusk> getSubTusks() {
+        return subTusks;
+    }
+
+    public void setSubTusks(Set<SubTusk> subTusks) {
+        this.subTusks = subTusks;
+    }
+
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
     }
 }

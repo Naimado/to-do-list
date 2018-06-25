@@ -3,10 +3,8 @@ package com.github.naimado.model;
 
 import com.sun.istack.internal.NotNull;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class User extends BaseEntity implements Employee {
@@ -27,6 +25,9 @@ public class User extends BaseEntity implements Employee {
 
     @NotNull
     private String password;
+
+    @OneToMany(mappedBy = "user")
+    private Set<Comment> comments;
 
     public User() {
     }
