@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.util.Set;
 
 @Entity
-public class UserGroup implements Employee {
+public class UserGroup extends BaseEntity implements Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
